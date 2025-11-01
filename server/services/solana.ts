@@ -25,7 +25,7 @@ function getSenderKeypair(): Keypair {
 
   const privateKey = process.env.SOLANA_PRIVATE_KEY;
   if (!privateKey) {
-    throw new Error("SOLANA_PRIVATE_KEY is not set");
+    throw new Error("SOLANA_PRIVATE_KEY_MISSING");
   }
 
   try {
@@ -58,8 +58,9 @@ export async function transferUSDC(recipientAddress: string): Promise<{
   status: "success" | "failed";
   error?: string;
 }> {
+  const senderKeypair = getSenderKeypair();
+  
   try {
-    const senderKeypair = getSenderKeypair();
     const recipientPublicKey = new PublicKey(recipientAddress);
     const usdcMint = new PublicKey(USDC_MINT_DEVNET);
 

@@ -49,6 +49,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
         };
       } catch (error: any) {
         console.error("Transaction error:", error);
+        
+        if (error.message?.includes("SOLANA_PRIVATE_KEY_MISSING")) {
+          return res.status(503).json({ 
+            error: "Payment service is not configured. Please add SOLANA_PRIVATE_KEY to your secrets." 
+          });
+        }
+        
         transaction = {
           signature: "",
           amount: 0.001,
