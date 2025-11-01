@@ -56,18 +56,26 @@ Preferred communication style: Simple, everyday language.
 
 ### Authentication and Authorization
 
-**Wallet-Based Authentication**: Users authenticate by connecting their Solana wallet address
+**Wallet-Based Authentication**: Users authenticate by connecting their Solana wallet (Phantom or compatible wallets)
 
-**Validation Process**: 
-1. Client submits wallet address
-2. Server validates address format (32-44 characters)
-3. Server checks wallet existence on Solana devnet via RPC
-4. No traditional username/password authentication required
+**Wallet Connection Flow**: 
+1. User clicks "Connect Wallet" button in the header
+2. Phantom wallet extension prompts for connection approval
+3. Frontend receives wallet public key via Solana Wallet Standard
+4. Backend automatically validates wallet address format and existence on network
+5. Chat functionality unlocks after successful validation
+
+**Wallet Integration**:
+- WalletContext manages connection state globally using React Context
+- Automatic wallet detection and connection via `window.solana` provider
+- Supports account switching and disconnection
+- Wallet address displayed in truncated format (e.g., `3AB...xyz`)
 
 **Security Considerations**: 
 - Wallet address validation prevents malformed inputs
-- Private key stored server-side as environment variable for USDC transfers
+- Server private key stored securely as environment variable for USDC transfers
 - No sensitive user data collected or stored
+- Automatic re-validation on wallet changes
 
 ### External Dependencies
 
