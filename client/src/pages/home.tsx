@@ -12,13 +12,6 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-b from-black via-purple-950/20 to-black">
       <section className="min-h-screen flex items-center justify-center px-8 py-32">
         <div className="max-w-6xl mx-auto text-center space-y-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 backdrop-blur-sm mb-4" data-testid="badge-version">
-            <span className="text-sm font-medium bg-gradient-to-r from-purple-400 to-teal-400 bg-clip-text text-transparent">
-              Version 1.0
-            </span>
-            <span className="text-sm text-muted-foreground">November 2025</span>
-          </div>
-          
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight" data-testid="text-hero-title">
             <span className="bg-gradient-to-r from-purple-400 via-teal-400 to-blue-400 bg-clip-text text-transparent">
               x402Pay
