@@ -1,226 +1,227 @@
-# Design Guidelines: Solana-Powered AI Chatbot
+# Design Guidelines: x402Pay Whitepaper Platform
 
 ## Design Approach
 
-**Selected Approach:** Design System (Material Design) with Chat Interface Patterns
+**Selected Approach:** Reference-Based (Solana, Stripe Docs, Ethereum Foundation)
 
-**Rationale:** This utility-focused chatbot prioritizes conversation flow, readability, and functional clarity. Drawing inspiration from ChatGPT, Claude, and modern messaging applications while incorporating Material Design principles for consistent component behavior.
+**Rationale:** Professional documentation site showcasing blockchain technology requires the credibility of enterprise-grade design systems while maintaining visual distinctiveness. Drawing from Solana's gradient aesthetics, Stripe's documentation clarity, and Ethereum's technical authority.
 
-**Key Design Principles:**
-- Conversation-first layout that prioritizes message readability
-- Clear visual separation between user and AI messages
-- Seamless wallet integration without disrupting chat flow
-- Minimal chrome to keep focus on content
+**Key Principles:**
+- Technical sophistication through restrained visual treatment
+- Deep hierarchies for complex documentation
+- Gradient accents as wayfinding, not decoration
+- Trust through consistent, predictable patterns
 
 ---
 
 ## Typography
 
 **Font Families:**
-- Primary: Inter or System UI stack for optimal screen readability
-- Monospace: JetBrains Mono for wallet addresses and transaction IDs
+- Primary: Inter (via Google Fonts CDN) for all UI and body text
+- Monospace: JetBrains Mono for code snippets, protocol names, addresses
 
 **Hierarchy:**
-- Chat messages: text-base (16px) for comfortable reading
-- Wallet address labels: text-sm (14px)
-- Transaction status: text-xs (12px)
-- System notifications: text-sm (14px) medium weight
-- Input placeholder: text-base (16px) with reduced opacity
+- Hero headline: text-5xl md:text-7xl, font-bold, tracking-tight
+- Section headers: text-4xl md:text-5xl, font-bold
+- Subsection headers: text-2xl md:text-3xl, font-semibold
+- Body text: text-base md:text-lg, leading-relaxed
+- Technical specs: text-sm, font-mono
+- Captions: text-sm, opacity-70
 
 **Weights:**
-- Regular (400): Message content, input fields
-- Medium (500): User message labels, wallet info headers
-- Semibold (600): Transaction confirmations, error states
+- Bold (700): Headlines, hero text
+- Semibold (600): Section headers, navigation
+- Medium (500): Subheadings, emphasized body text
+- Regular (400): Body content, documentation
 
 ---
 
 ## Layout System
 
-**Spacing Primitives:** Use Tailwind units of 2, 4, 6, and 8 for consistency
-- Component padding: p-4, p-6
-- Message gaps: gap-4
-- Section spacing: space-y-6, space-y-8
-- Input group spacing: gap-2
+**Spacing Primitives:** Tailwind units of 4, 8, 12, 16
+- Component padding: p-8, p-12, p-16
+- Section spacing: py-16 md:py-24 lg:py-32
+- Content gaps: gap-8, gap-12
+- Card padding: p-8
 
-**Container Structure:**
-```
-Main viewport: Full height (h-screen)
-├── Top bar: Fixed header with h-16
-├── Chat container: flex-1 (remaining height)
-│   ├── Messages area: Scrollable with max-w-3xl centered
-│   └── Message padding: px-4 md:px-6
-└── Input area: Fixed bottom with p-4
-```
-
-**Maximum Widths:**
-- Chat messages container: max-w-3xl
-- Individual messages: Full width within container
-- Wallet input section: max-w-md
+**Grid System:**
+- Hero: Single column, centered, max-w-6xl
+- Executive Summary: 2-column on lg (content + visual/stats)
+- Technical Sections: Single column max-w-4xl for readability
+- Feature Showcases: 3-column grid (grid-cols-1 md:grid-cols-2 lg:grid-cols-3)
+- Tokenomics: 2-column split (chart + breakdown)
+- Roadmap: Timeline layout, single column max-w-5xl
 
 ---
 
 ## Component Library
 
-### Header Bar
-- Fixed top position with subtle border bottom
-- Contains: App title/logo (left), wallet status indicator (right)
-- Height: h-16 with flex items-center justify-between
-- Padding: px-4 md:px-6
+### Navigation Header
+- Fixed top with backdrop-blur-md
+- Height: h-20
+- Logo left, navigation center, "Get Started" CTA right
+- Navigation items: text-sm, medium weight, gap-8
+- Subtle gradient underline on active state
+- Padding: px-8 md:px-12
 
-### Wallet Input Section
-**Position:** Above chat area, dismissable after wallet is set
-- Card-style container with rounded-lg borders
-- Padding: p-6
-- Contains:
-  - Label: "Solana Wallet Address" (text-sm medium weight)
-  - Input field: Full width, monospace font, rounded-md
-  - Validation indicator: Icon + text status
-  - Optional: "Disconnect" button if wallet is connected
-- Margin: mx-4, my-4
+### Hero Section
+- Full viewport height: min-h-screen
+- Large hero image: Abstract Solana-themed visualization (purple-teal gradient geometric patterns, network nodes, IoT device imagery)
+- Image treatment: Subtle overlay gradient (dark at bottom)
+- Content positioning: Centered vertically, max-w-4xl
+- Elements stack: Logo mark, headline, subheadline (text-xl opacity-80), dual CTAs
+- CTA buttons: Primary (gradient background) + Secondary (outline)
+- Button backgrounds: Blurred backdrop (backdrop-blur-md) with semi-transparent fill
+- Padding: px-8, py-32
 
-### Chat Messages Area
-**Container:**
-- Scrollable: overflow-y-auto with smooth scroll behavior
-- Padding: pb-24 (space for input area)
-- Auto-scroll to bottom on new messages
+### Executive Summary Section
+- 2-column layout on desktop: Left (prose content), Right (key metrics cards)
+- Background: Subtle gradient from deep black to dark purple
+- Metrics cards: 2x2 grid, rounded-xl, p-6, gradient borders
+- Each metric: Large number (text-4xl), label (text-sm), icon
+- Padding: py-24, px-8 md:px-12
 
-**Message Bubbles:**
-- User messages: Right-aligned (ml-auto), max-w-2xl
-- AI messages: Left-aligned (mr-auto), max-w-2xl
-- Bubble padding: px-4 py-3
-- Border radius: rounded-2xl
-- Spacing between messages: space-y-4
+### Technical Documentation Sections
+- Single column max-w-4xl centered
+- Section header with gradient text effect
+- Content blocks with p-8, rounded-xl, subtle border
+- Code blocks: Dark background, syntax highlighting placeholder, rounded-lg, p-6
+- Diagrams/illustrations: Full-width within container, rounded-lg, border
+- Side notes: Accent border-left with pl-6
+- Spacing between blocks: space-y-8
 
-**Message Structure:**
-```
-Message wrapper (flex flex-col gap-1)
-├── Sender label (text-xs, only for AI messages: "AI Assistant")
-├── Bubble (rounded-2xl, px-4 py-3)
-└── Timestamp (text-xs, opacity-60)
-```
+### x402 Protocol Architecture Section
+- 3-column feature grid showcasing protocol layers
+- Cards: h-full, p-8, rounded-xl, gradient border on hover
+- Icon (electric blue accent), title, description
+- Background: Deep gradient from black to navy
+- Grid gap: gap-8
 
-**Transaction Notification:**
-- Appears below AI message bubble
-- Compact card with rounded-lg
-- Padding: px-3 py-2
-- Contains: Icon, "0.001 USDC sent" text, transaction link
-- Margin: mt-2
+### Device Identity System Section
+- Split layout: Visual (animated device network diagram) + Explanation
+- Trust indicators: Security badges, compliance logos
+- Technical specs table: Striped rows, monospace values
+- Padding: py-24
 
-### Input Area
-**Fixed Bottom Container:**
-- Position: Fixed bottom with backdrop-blur effect
-- Padding: p-4
-- Border top: Subtle 1px border
+### SDK Documentation Section
+- Tabbed interface for different languages/platforms
+- Tab bar: Horizontal scroll on mobile, sticky on desktop
+- Code example blocks: Full-width, dark background, copy button
+- Quick start guide: Numbered steps with gradient accent numbers
+- Installation commands: One-line copy blocks
+- Padding: py-16
 
-**Input Group:**
-- Centered with max-w-3xl
-- Flex layout with gap-2
-- Components:
-  - Text input: flex-1, rounded-full, px-6 py-3
-  - Send button: w-10 h-10, rounded-full, flex items-center justify-center
-  - Loading state: Replace button with spinner
+### Tokenomics Section
+- 2-column split: Left (pie chart/allocation visual), Right (breakdown list)
+- Allocation cards: Icon, percentage (text-3xl), category, description
+- Gradient progress bars showing distribution
+- Total supply callout: Centered, large text with gradient
+- Background: Darkest section with teal accent gradient
+- Padding: py-24
 
-**Input Field States:**
-- Default: Border with medium weight
-- Focus: Enhanced border, no ring (clean appearance)
-- Disabled: Reduced opacity while processing
+### Roadmap Section
+- Vertical timeline with gradient connecting line
+- Milestone cards: Alternating left/right layout
+- Each milestone: Quarter, title, description, status badge
+- Status badges: Completed (teal), In Progress (blue), Planned (purple)
+- Timeline line: Gradient from purple to teal top-to-bottom
+- Padding: py-24
 
-### System Messages
-**Purpose:** Display errors, connection status, transaction confirmations
+### Footer
+- 4-column grid on desktop: Company, Product, Resources, Social
+- Newsletter signup form: Email input + gradient submit button
+- Network status badge: "Solana Devnet" pill
+- Bottom bar: Copyright, legal links, back-to-top button
+- Background: Deepest black with subtle top border gradient
+- Padding: pt-16 pb-8
 
-**Appearance:**
-- Centered in chat flow
-- Rounded-lg containers with p-3
-- Icons (info/warning/success) aligned left
-- Text: text-sm
-- Different visual treatments for info/warning/error
-- Margin: my-4
+---
 
-### Loading States
-**AI Typing Indicator:**
-- Left-aligned like AI messages
-- Animated dots (3 dots, staggered animation)
-- Same bubble styling as AI messages
-- Padding: px-4 py-3
+## Images
 
-**Transaction Processing:**
-- Inline loading indicator below message
-- Spinner + "Processing transaction..." text
-- Same styling as transaction notification area
+**Hero Image:**
+- Abstract Solana-themed visualization featuring purple-to-teal gradient geometric patterns overlaid with subtle IoT device network nodes
+- Dimensions: 1920x1080 minimum
+- Treatment: Dark gradient overlay (transparent to rgba(0,0,0,0.6) from top to bottom)
+- Purpose: Establish premium tech aesthetic immediately
 
-### Empty State
-**When no messages:**
-- Centered vertically and horizontally
-- Icon (chat/message icon)
-- Heading: "Start a conversation"
-- Subtext: "Messages will appear here. You'll receive 0.001 USDC for each interaction."
-- Text alignment: center
-- Spacing: space-y-4
+**Executive Summary Visual:**
+- Network topology diagram showing x402Pay ecosystem connections
+- Style: Wireframe aesthetic with glowing nodes
+- Dimensions: 800x600
+- Placement: Right column of executive summary section
+
+**Protocol Architecture Diagram:**
+- Layered architecture visualization (hardware → protocol → application)
+- Style: Technical schematic with gradient accents
+- Dimensions: 1200x800
+- Placement: Full-width in x402 Protocol section
+
+**Device Identity Illustration:**
+- Conceptual rendering of IoT device with security layer visualization
+- Style: Semi-transparent overlay effects, blue-purple gradient
+- Dimensions: 600x600
+- Placement: Left side of Device Identity section
 
 ---
 
 ## Responsive Behavior
 
-**Mobile (< 768px):**
-- Reduce horizontal padding: px-4
-- Input area: Full width with px-4
-- Message bubbles: Slightly reduced max-width
-- Header: Compact with smaller text
+**Mobile (<768px):**
+- Single column layouts throughout
+- Reduced section padding: py-12
+- Hero: min-h-[80vh], smaller text scale
+- Navigation: Hamburger menu
+- Cards: Full width, stacked
+- Timeline: Left-aligned only
 
-**Desktop (≥ 768px):**
-- Generous padding: px-6
-- Centered chat container with max-w-3xl
-- More breathing room in message spacing
+**Tablet (768px-1024px):**
+- 2-column maximum
+- Section padding: py-16
+- Moderate text scaling
+
+**Desktop (≥1024px):**
+- Full grid layouts
+- Maximum section padding
+- Parallax scroll effects on hero image (subtle)
+- Sticky navigation
 
 ---
 
 ## Interaction Patterns
 
-**Message Submission:**
-- Enter key sends message
-- Shift+Enter for new line
-- Auto-clear input after send
-- Disable input during processing
-
-**Wallet Connection:**
-- Validate on blur or button click
-- Show inline validation feedback
-- Persist wallet address in session
-- Allow disconnect/change wallet
-
-**Transaction Feedback:**
-- Immediate visual confirmation below AI message
-- Link to Solana Explorer (devnet)
-- Error messages appear as system messages
-- Retry option on transaction failure
-
 **Scroll Behavior:**
-- Auto-scroll to bottom on new messages
-- Smooth scroll animation
-- User can scroll up to view history
-- "Scroll to bottom" button appears when scrolled up
+- Smooth scroll to anchored sections
+- Fade-in animations for content blocks (intersection observer)
+- Gradient underline follows scroll position in navigation
+
+**Buttons:**
+- Primary: Gradient fill (purple-to-teal), white text, rounded-full
+- Secondary: Gradient border, transparent fill, gradient text
+- No additional hover states when on images (blurred backgrounds handle visibility)
+
+**Cards:**
+- Subtle gradient border animation on hover
+- Gentle scale transform (scale-[1.02])
+- Glow effect on technical feature cards
+
+**Code Blocks:**
+- Copy button appears on hover
+- Syntax highlighting (purple for keywords, teal for strings, blue for functions)
+- Line numbers in reduced opacity
 
 ---
 
 ## Accessibility
 
-- Semantic HTML: use `<main>`, `<article>` for messages, `<form>` for input
-- ARIA labels for icon buttons
-- Focus management: Return focus to input after sending
-- Keyboard navigation: Full keyboard accessibility
-- Screen reader announcements for new messages
-- Sufficient contrast ratios for all text
+- Semantic HTML structure: `<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`
+- Skip to content link for keyboard users
+- ARIA labels for all icon buttons and navigation
+- Focus indicators: Gradient outline matching brand
+- Contrast ratios exceed WCAG AA on dark backgrounds
+- Alt text for all images and diagrams
+- Keyboard navigation for tabbed interfaces
 
 ---
 
-## Component Enrichment
-
-**Header:** Include connection status indicator, optional settings/info icon
-**Input Area:** Include character count, placeholder updates based on state
-**Messages:** Add copy button for AI responses, timestamp on hover
-**Wallet Section:** Include wallet balance display (if connected), network indicator (devnet badge)
-**Transaction Links:** Monospace font for transaction IDs, external link icon
-
----
-
-This design creates a clean, focused chat experience that seamlessly integrates Solana wallet functionality without overwhelming the primary conversation flow. The interface prioritizes readability and usability while maintaining visual polish through consistent spacing, typography hierarchy, and purposeful component design.
+This design establishes x402Pay as a sophisticated blockchain platform through premium dark aesthetics, clear information architecture, and strategic use of Solana's signature gradients. The whitepaper content flows naturally from high-level vision (hero, executive summary) through technical depth (protocol, SDK) to future outlook (tokenomics, roadmap), creating a comprehensive narrative for investors, partners, and developers.
