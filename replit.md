@@ -1,8 +1,20 @@
-# Solana-Powered AI Chatbot
+# x402Pay: Decentralized Micropayments for IoT on Solana
 
-## Overview
+## Project Vision
 
-This is a web application that combines AI-powered chat functionality with Solana blockchain rewards. Users connect their Solana wallet, chat with an AI assistant powered by Mistral AI, and earn USDC for each interaction. The application supports both Solana mainnet (real USDC) and devnet (test USDC) with configurable network settings, comprehensive rate limiting, balance checks, and transaction monitoring. Features include a modern chat interface with real-time transaction tracking, wallet integration, and mainnet safety warnings.
+**x402Pay** is a Solana-native decentralized payment infrastructure purpose-built for the IoT economy, implementing the "get-as-you-go" paradigm for instant micropayments. The project enables machine-to-machine (M2M) and human-to-machine (H2M) transactions using Solana's high throughput (40,000 TPS) and sub-second finality.
+
+**📄 Full Whitepaper:** See `docs/x402pay-whitepaper.md` for comprehensive technical documentation, tokenomics, roadmap, and investment information.
+
+## Current Implementation Status
+
+The codebase currently implements a **proof-of-concept chat application** demonstrating the core payment infrastructure:
+- AI-powered chat with Mistral AI integration
+- Phantom wallet connection and USDC micropayments (0.001 USDC per interaction)
+- Solana mainnet/devnet support with configurable rate limiting
+- Real-time transaction tracking and balance monitoring
+
+**Next Steps:** Evolution toward full IoT micropayment platform with device registries, x402 Sol smart contract deployment, and SDK releases (Python, Rust, JavaScript) as outlined in the whitepaper roadmap.
 
 ## User Preferences
 
