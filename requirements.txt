@@ -1,0 +1,14 @@
+# ReactorX402 Python Backend Requirements
+
+numpy>=1.23
+pandas>=1.5
+scipy>=1.9
+aiohttp>=3.8
+websockets>=10.4
+solana>=0.31.0
+pynacl>=1.5
+cryptography>=40.0
+python-dotenv>=1.0
+loguru>=0.7
+uvicorn>=0.23
+fastapi>=0.95
